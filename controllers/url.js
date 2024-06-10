@@ -12,7 +12,10 @@ async function handleGenerateNewShortUrl(req, res) {
     visitHistory: [],
   })
 
-  return res.status(200).json({ status: 'ID Generated', id: shortID })
+    return res.render("home", {
+      id: shortID
+    })
+  // return res.status(200).json({ status: 'ID Generated', id: shortID })
 
 }
 
@@ -24,7 +27,6 @@ async function handleGetAnalytics(req, res) {
     analytics: result.visitHistory
   })
 }
-
 
 module.exports = {
   handleGenerateNewShortUrl,
