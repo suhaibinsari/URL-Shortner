@@ -26,9 +26,16 @@ async function handleUserLogin(req, res) {
     // return res.redirect('/')
 
 
-    const token = setUser(user); // for stateless
-    res.cookie("uid", token)
-    return res.redirect("/")
+    // const token = setUser(user); // for stateless
+    // res.cookie("uid", token)
+    // return res.redirect("/")
+
+
+    // now using headers for authorization
+    const token = setUser(user)
+
+    return res.json({token})
+
 }
 
 
